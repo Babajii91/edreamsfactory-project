@@ -1,11 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eDreams Factory</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDREAMS Factory</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <span class="logo">EDREAMS <strong>Factory</strong></span>
+      <span class="tagline">Fabrique du Digital.</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="intro">
+      <h1>Qualifions ensemble votre projet</h1>
+      <p>
+        Quelques questions rapides pour que notre équipe comprenne vos besoins
+        et revienne vers vous avec les bonnes recommandations. Comptez 2 minutes.
+      </p>
+    </section>
+
+    <section class="form-section">
+      <form id="project-form" novalidate>
+
+        <!-- 1. Nombre d'utilisateurs attendus -->
+        <div class="field">
+          <p class="field-title">Nombre d'utilisateurs attendus</p>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="users" value="moins-100" required>
+              Moins de 100 utilisateurs
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="users" value="100-1000">
+              Entre 100 et 1 000 utilisateurs
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="users" value="1000-10000">
+              Entre 1 000 et 10 000 utilisateurs
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="users" value="10000-plus">
+              Plus de 10 000 utilisateurs
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="users" value="je-ne-sais-pas">
+              Je ne sais pas encore
+            </label>
+          </div>
+        </div>
+
+        <!-- 2. Fourchette de budget -->
+        <div class="field">
+          <p class="field-title">Fourchette de budget envisagée</p>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="budget" value="moins-5k" required>
+              Moins de 5 000 €
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="budget" value="5k-15k">
+              5 000 € – 15 000 €
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="budget" value="15k-50k">
+              15 000 € – 50 000 €
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="budget" value="50k-plus">
+              Plus de 50 000 €
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="budget" value="a-definir">
+              À définir avec vous
+            </label>
+          </div>
+        </div>
+
+        <!-- 3. Disponibilité de maquettes -->
+        <div class="field">
+          <p class="field-title">Avez-vous déjà des maquettes ou wireframes ?</p>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="maquettes" value="oui" required>
+              Oui, elles sont prêtes
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="maquettes" value="partielles">
+              Partiellement / en cours
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="maquettes" value="non">
+              Non, pas encore
+            </label>
+          </div>
+        </div>
+
+        <!-- 4. Souhait d'une application mobile -->
+        <div class="field">
+          <p class="field-title">Souhaitez-vous une application mobile ?</p>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="mobile" value="oui" required>
+              Oui
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="mobile" value="non">
+              Non
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="mobile" value="pas-sur">
+              Pas encore décidé
+            </label>
+          </div>
+        </div>
+
+        <!-- 5. Description libre du projet -->
+        <div class="field">
+          <label for="description">Décrivez votre projet en quelques mots</label>
+          <textarea id="description" name="description" rows="5"
+            placeholder="Parlez-nous de votre idée, du problème à résoudre, du contexte de votre entreprise..."
+            required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Envoyer ma demande</button>
+
+        <p id="form-confirmation" class="confirmation" hidden>
+          Merci ! Votre projet a bien été qualifié. Notre équipe revient vers vous très rapidement.
+        </p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>eDreams Factory — Discutons de votre projet</p>
+    </div>
+  </footer>
+
+  <!--le chatbot -->
+  <div id="chatbot" class="chatbot closed">
+    <button id="chatbot-toggle" class="chatbot-toggle" type="button" aria-expanded="false" aria-controls="chatbot-panel">
+      Discuter avec l'assistant
+    </button>
+
+    <div id="chatbot-panel" class="chatbot-panel" hidden>
+      <div class="chatbot-header">
+        <span>Assistant eDreams Factory</span>
+        <button id="chatbot-close" class="chatbot-close" type="button" aria-label="Fermer le chat">Fermer</button>
+      </div>
+      <div id="chatbot-messages" class="chatbot-messages" aria-live="polite"></div>
+      <form id="chatbot-form" class="chatbot-input-row">
+        <label for="chatbot-input" class="visually-hidden">Votre message</label>
+        <input type="text" id="chatbot-input" name="chatbot-input" placeholder="Écrivez votre question..." autocomplete="off">
+        <button type="submit" class="btn-send">Envoyer</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="javascript/script.js"></script>
 </body>
 </html>
